@@ -29,6 +29,11 @@
     "webpack-dev-server": "^4.5.0"
   },
   "dependencies": {
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@mui/icons-material": "^5.3.1",
+    "@mui/material": "^5.4.0",
+    "axios": "^0.25.0",
     "favicons-webpack-plugin": "^5.0.2",
     "install": "^0.13.0",
     "mini-css-extract-plugin": "^2.5.3",
