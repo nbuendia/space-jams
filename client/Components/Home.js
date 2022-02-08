@@ -1,13 +1,13 @@
 import React from "react";
 
 //MUI
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 
 function Home() {
     return(
-        <>
+        <Container>
             <Grid item>
-                <Box style={{width: '85vw', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+                <Box className="inner-main-container">
                     <Typography>
                         <b>HOME HOME HOME</b>
                     </Typography>
@@ -15,7 +15,7 @@ function Home() {
                     <img src="https://i.imgur.com/wqPqOII.jpg"/>
                 </Box>
             </Grid>
-        </>
+        </Container>
     )
 
 }
