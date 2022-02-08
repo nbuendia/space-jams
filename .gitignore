@@ -9,6 +9,9 @@
 # production
 /dist
 
+# api key
+secrets.json
+
 # misc
 .DS_Store
 .env.local
