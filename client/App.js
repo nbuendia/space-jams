@@ -1,15 +1,16 @@
 import React from "react";
+import {Routes, Route} from 'react-router-dom';
 
 //COMPONENTS
-import AllRoutes from './AllRoutes';
+import Layout from "./Components/Layout";
 
  function App() {
      return (
-         <>
-             {/* NAVBAR */}
-             <AllRoutes />
-             {/* FOOTER */}
-         </>
+        <>
+            <Routes>
+                <Route path='/' element={<Layout />} />
+            </Routes>
+        </>
      )
  }
 
