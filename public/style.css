@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
+
+body {
+    margin: 0;
+    background-color: rgb(15, 15, 15);
+    color: whitesmoke;
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    background-color: black;
+}
+
+.tab:hover {
+    background-color: #333333;
+}
+
+.card-content-BG-color {
+    background: linear-gradient(0.5turn, black, white, black);
+}
+  
+.card-content-icons {
+    display: flex;
+    justify-content: center;
+}
