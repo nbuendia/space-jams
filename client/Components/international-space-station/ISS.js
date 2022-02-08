@@ -1,19 +1,19 @@
 import React from "react";
 
 //MUI
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 
 function ISS() {
     return(
-        <>
+        <Container>
             <Grid item>
-                <Box style={{width: '85vw', height: '100%', display: 'flex', justifyContent: 'center'}}>
+                <Box className="inner-main-container">
                     <Typography>
                         <b>INTERNATIONAL SPACE STATION!</b>
                     </Typography>
                 </Box>
             </Grid>
-        </>
+        </Container>
     )
 
 }
