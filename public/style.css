@@ -16,8 +16,42 @@ body {
     background-color: black;
 }
 
+.nav-bar-container {
+    display: flex;
+}
+
+.inner-nav-bar {
+    height: 100vh;
+    width: 15vw;
+    display: flex;
+    align-items: center;
+    background-color: #242424;
+}
+
+.tab-container {
+    width: 15vw;
+}
+
+.tab {
+    color: whitesmoke;
+}
+
 .tab:hover {
     background-color: #333333;
+}
+
+.main-container {
+    height: 100vh;
+    width: 100%;
+    overflow-y: auto;
+    display: flex;
+}
+
+.inner-main-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .card-content-BG-color {
