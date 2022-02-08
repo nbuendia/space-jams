@@ -7,7 +7,7 @@ function MarsRover() {
     return(
         <>
             <Grid item>
-                <Box style={{width: '85vw', height: '100%', display: 'flex', justifyContent: 'center'}}>
+                <Box className="inner-main-container">
                     <Typography>
                         <b>MARS ROVER MARS ROVER</b>
                     </Typography>
