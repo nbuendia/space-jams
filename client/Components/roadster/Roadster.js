@@ -1,11 +1,11 @@
 import React from "react";
 
 //MUI
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 
 function Roadster() {
     return(
-        <>
+        <Container>
             <Grid item>
                 <Box className="inner-main-container">
                     <Typography>
@@ -13,7 +13,7 @@ function Roadster() {
                     </Typography>
                 </Box>
             </Grid>
-        </>
+        </Container>
     )
 
 }
