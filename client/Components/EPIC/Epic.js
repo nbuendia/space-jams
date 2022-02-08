@@ -29,7 +29,7 @@ function Epic() {
         })
     });
 
-    //DISPLAYS LOADING COMPONENT FOR 5secs WHILE AXIOS IS FETCHING IMAGES
+    //DISPLAYS LOADING WHILE AXIOS IS FETCHING IMAGES
     if (isLoading) return 'LOADING...';
 
     return(
