@@ -14,22 +14,24 @@ import key from '../../../secrets.json';
 const apiKey = key["api-key"];
 const url = `https://api.nasa.gov/EPIC/api/natural/images?api_key=${apiKey}`;
 
-function Epic() {
+function EPIC() {
     const [isLoading, setLoading] = useStateIfMounted(true);
     const [data, getData] = useState(null);
 
     useEffect(() => {
         axios.get(url).then((res) => {
             getData(res.data);
-            
+
             //SO THE LOADING DOESNT LOOK LIKE A GLITCH, AXIOS REQ IS TOO FAST
             setTimeout(() => {
                 setLoading(false);
             }, 3000);
+
         }).catch((err) => {
             console.error('Oh No! Something went wrong!', err);
         });
-    });
+
+    }, []);
 
     //DISPLAYS LOADING WHILE AXIOS IS FETCHING IMAGES
     if (isLoading) return 'LOADING...';
@@ -45,4 +47,4 @@ function Epic() {
 
 }
 
-export default Epic;
+export default EPIC;
