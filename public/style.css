@@ -22,22 +22,22 @@ body {
 
 .inner-nav-bar {
     height: 100vh;
-    width: 15vw;
+    width: 20vw;
     display: flex;
     align-items: center;
     background-color: #242424;
 }
 
 .tab-container {
-    width: 15vw;
-}
-
-.tab {
-    color: whitesmoke;
+    width: 20vw;
 }
 
 .tab:hover {
     background-color: #333333;
+}
+
+button:focus {
+    border: 1px solid whitesmoke;
 }
 
 .main-container {
@@ -48,10 +48,10 @@ body {
 }
 
 .inner-main-container {
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
 }
 
 .card-content-BG-color {
