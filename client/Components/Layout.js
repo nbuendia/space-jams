@@ -14,19 +14,19 @@ import ISS from "./international-space-station/ISS";
 function Layout() {
     const [value, setValue] = useState('home');
 
-  return (
-    <Box className="nav-bar-container">
-        <NavBar value={value} setValue={setValue} />
+    return (
+        <Box className="nav-bar-container">
+            <NavBar value={value} setValue={setValue} />
 
-        <Box className="main-container">
-            {value === 'home' ? <Home />
-            : value === 'epic' ? <Epic />
-            : value === 'mars rover' ? <MarsRover />
-            : value === 'international space station' ? <ISS />
-            : <Roadster />}
+            <Box className="main-container">
+                {value === 'home' ? <Home />
+                : value === 'epic' ? <Epic />
+                : value === 'mars rover' ? <MarsRover />
+                : value === 'international space station' ? <ISS />
+                : <Roadster />}
+            </Box>
         </Box>
-    </Box>
-  );
+    );
 }
 
 export default Layout;
