@@ -15,7 +15,7 @@ const apiKey = key["api-key"];
 const url = `https://api.nasa.gov/EPIC/api/natural/images?api_key=${apiKey}`;
 
 function Epic() {
-    const [isLoading, setLoading] = useStateIfMounted(true) //useState(true);
+    const [isLoading, setLoading] = useStateIfMounted(true);
     const [data, getData] = useState(null);
 
     useEffect(() => {
