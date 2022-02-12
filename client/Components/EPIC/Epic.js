@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useStateIfMounted } from "use-state-if-mounted";
 import axios from "axios";
 
 //MUI
@@ -15,7 +16,7 @@ import Title from "./Title";
 import Earth from "./Earth";
 
 function Epic() {
-    const [isLoading, setLoading] = useState(true);
+    const [isLoading, setLoading] = useStateIfMounted(true) //useState(true);
     const [data, getData] = useState(null);
 
     useEffect(() => {
@@ -26,7 +27,9 @@ function Epic() {
             setTimeout(() => {
                 setLoading(false);
             }, 3000);
-        })
+        }).catch((err) => {
+            console.error('Oh No! Something went wrong!', err);
+        });
     });
 
     //DISPLAYS LOADING WHILE AXIOS IS FETCHING IMAGES
