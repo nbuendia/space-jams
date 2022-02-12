@@ -1,17 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 //MUI
 import { Box, Tab, Tabs } from "@mui/material";
 
-//COMPONENTS
-import Home from "./Home";
-import Epic from "./EPIC/Epic";
-import MarsRover from "./mars-rover/MarsRover";
-import Roadster from "./Roadster/Roadster";
-import ISS from "./international-space-station/ISS";
-
-function NavBar() {
-    const [value, setValue] = useState('home');
+function NavBar(props) {
+    const { value, setValue } = props;
 
     function handleChange(event, newValue) {
         setValue(newValue);
@@ -27,14 +20,6 @@ function NavBar() {
                 <Tab label='INTERNATIONAL SPACE STATION' value='international space station' className="tab" style={{color: 'whitesmoke'}}/>
                 <Tab label='ROADSTER' value='roadster' className="tab" style={{color: 'whitesmoke'}}/>
             </Tabs>
-        </Box>
-
-        <Box className="main-container">
-            {value === 'home' ? <Home />
-            : value === 'epic' ? <Epic />
-            : value === 'mars rover' ? <MarsRover />
-            : value === 'international space station' ? <ISS />
-            : <Roadster />}
         </Box>
     </Box>
   );
