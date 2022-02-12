@@ -1,13 +1,7 @@
 import React from "react";
 
 //MUI
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Grid,
-  Typography
-} from "@mui/material";
+import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 
 function Earth(props) {
   const { data } = props;
