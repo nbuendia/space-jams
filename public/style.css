@@ -36,9 +36,10 @@ body {
     background-color: #333333;
 }
 
-button:focus {
+/* DOESNT FULLY WORK - WILL FIX LATER - */
+/* button:focus {
     border: 1px solid whitesmoke;
-}
+} */
 
 .main-container {
     height: 100vh;
