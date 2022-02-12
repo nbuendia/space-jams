@@ -2,18 +2,17 @@ import React, { useEffect, useState } from "react";
 import { useStateIfMounted } from "use-state-if-mounted";
 import axios from "axios";
 
+//COMPONENTS
+import Title from "./Title";
+import Earth from "./Earth";
+
 //MUI
 import { Container, Grid } from "@mui/material";
 
 //DATA
 import key from '../../../secrets.json';
-
 const apiKey = key["api-key"];
 const url = `https://api.nasa.gov/EPIC/api/natural/images?api_key=${apiKey}`;
-
-//COMPONENTS
-import Title from "./Title";
-import Earth from "./Earth";
 
 function Epic() {
     const [isLoading, setLoading] = useStateIfMounted(true) //useState(true);
