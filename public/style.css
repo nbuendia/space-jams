@@ -67,14 +67,9 @@ body {
     padding: 25px;
 }
 
-.card-content-BG-color {
+.earth-card-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: linear-gradient(0.5turn, black, white, black);
-}
-  
-.card-content-icons {
-    display: flex;
-    justify-content: center;
 }
