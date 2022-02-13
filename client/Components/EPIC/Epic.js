@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useStateIfMounted } from "use-state-if-mounted";
+import { GridLoader } from "react-spinners";
 import axios from "axios";
 
 //COMPONENTS
@@ -7,7 +8,7 @@ import Title from "./Title";
 import Earth from "./Earth";
 
 //MUI
-import { Container, Grid } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 
 //DATA
 import key from '../../../secrets.json';
@@ -34,7 +35,13 @@ function EPIC() {
     }, []);
 
     //DISPLAYS LOADING WHILE AXIOS IS FETCHING IMAGES
-    if (isLoading) return 'LOADING...';
+    if (isLoading) return (
+        <>
+            <Box className="loader">
+                <GridLoader loading={isLoading} color='white' size={25} />
+            </Box>
+        </>
+    );
 
     return(
         <Container>
