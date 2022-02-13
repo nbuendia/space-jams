@@ -1,7 +1,7 @@
 import React from "react";
 
 //MUI
-import { Box, CardContent, Tooltip, Typography } from "@mui/material";
+import { Box, CardContent, Fade, IconButton, Tooltip, Typography } from "@mui/material";
 //MUI ICONS
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
@@ -20,19 +20,25 @@ function APODCardContent(props) {
             </Typography>
 
             <Box className="apod-icons">
-                <Tooltip title='Astronomy Picture of The Day' placement="left">
+                <Tooltip title='Astronomy Picture of The Day' placement="left" TransitionComponent={Fade}>
                     <a target='_blank' rel="noopener" href="https://apod.nasa.gov/apod/astropix.html">
-                        <RocketLaunchIcon style={{color: 'whitesmoke', fontSize: 25}}/>
+                        <IconButton>
+                            <RocketLaunchIcon style={{color: 'whitesmoke', fontSize: 25}}/>
+                        </IconButton>
                     </a>
                 </Tooltip>
 
-                <Tooltip title={date} placement='bottom'>
-                    <CalendarTodayIcon style={{color: 'whitesmoke', fontSize: 25}}/>
+                <Tooltip title={date} placement='bottom' TransitionComponent={Fade}>
+                    <IconButton>
+                        <CalendarTodayIcon style={{color: 'whitesmoke', fontSize: 25}}/>
+                    </IconButton>
                 </Tooltip>
 
-                <Tooltip title='Fullsize Image' placement="right">
+                <Tooltip title='Fullsize Image' placement="right" TransitionComponent={Fade}>
                     <a target='_blank' rel='noopener' href={data.url}>
-                        <FullscreenIcon style={{color: 'whitesmoke', fontSize: 30}}/>
+                        <IconButton>
+                            <FullscreenIcon style={{color: 'whitesmoke', fontSize: 30}}/>
+                        </IconButton>
                     </a>
                 </Tooltip>
             </Box>
