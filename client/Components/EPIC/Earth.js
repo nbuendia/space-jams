@@ -25,7 +25,7 @@ function Earth(props) {
                 .join("/")}/png/${elem.image}.png`}
               alt="Image of Earth"
             />
-            <CardContent className="card-content-BG-color">
+            <CardContent className="earth-card-content">
               <Typography fontFamily={'Patrick Hand'} fontSize={15} fontWeight={800} textAlign={"center"}>
                 Photo Was Taken at {elem.date.split(" ")[1]}
               </Typography>
