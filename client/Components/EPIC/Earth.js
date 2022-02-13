@@ -5,8 +5,6 @@ import EarthPhoto from "./EarthPhoto";
 
 //MUI
 import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
-//MUI ICONS
-import FullscreenIcon from '@mui/icons-material/Fullscreen';
 
 function Earth(props) {
   const { data } = props;
