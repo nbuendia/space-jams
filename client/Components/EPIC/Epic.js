@@ -36,11 +36,9 @@ function EPIC() {
 
     //DISPLAYS LOADING WHILE AXIOS IS FETCHING IMAGES
     if (isLoading) return (
-        <>
-            <Box className="loader">
-                <GridLoader loading={isLoading} color='white' size={25} />
-            </Box>
-        </>
+        <Box className="loader">
+            <GridLoader loading={isLoading} color='white' size={25} />
+        </Box>
     );
 
     return(
