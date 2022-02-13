@@ -29,9 +29,7 @@ function APODCardContent(props) {
                 </Tooltip>
 
                 <Tooltip title={date} placement='bottom' TransitionComponent={Fade}>
-                    <IconButton>
-                        <CalendarTodayIcon style={{color: 'whitesmoke', fontSize: 25}}/>
-                    </IconButton>
+                    <CalendarTodayIcon style={{color: 'whitesmoke', fontSize: 25}}/>
                 </Tooltip>
 
                 <Tooltip title='Fullsize Image' placement="right" TransitionComponent={Fade}>
