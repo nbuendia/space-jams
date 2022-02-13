@@ -21,19 +21,11 @@ function Earth(props) {
               alt="Image of Earth"
             />
             <CardContent className="card-content-BG-color">
-              <Typography
-                fontSize={18}
-                fontWeight={"bold"}
-                textAlign={"center"}
-              >
+              <Typography fontSize={18} fontWeight={"bold"} textAlign={"center"}>
                 {elem.image.toUpperCase()}
               </Typography>
 
-              <Typography
-                fontSize={18}
-                fontWeight={"bold"}
-                textAlign={"center"}
-              >
+              <Typography fontSize={18} fontWeight={"bold"} textAlign={"center"}>
                 Photo Was Taken at {elem.date.split(" ")[1]}
               </Typography>
 
