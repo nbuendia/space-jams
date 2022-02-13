@@ -1,7 +1,12 @@
 import React from "react";
 
+//COMPONENTS
+import EarthPhoto from "./EarthPhoto";
+
 //MUI
 import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+//MUI ICONS
+import FullscreenIcon from '@mui/icons-material/Fullscreen';
 
 function Earth(props) {
   const { data } = props;
@@ -21,18 +26,11 @@ function Earth(props) {
               alt="Image of Earth"
             />
             <CardContent className="card-content-BG-color">
-              <Typography fontSize={18} fontWeight={"bold"} textAlign={"center"}>
-                {elem.image.toUpperCase()}
-              </Typography>
-
-              <Typography fontSize={18} fontWeight={"bold"} textAlign={"center"}>
+              <Typography fontFamily={'Patrick Hand'} fontSize={15} fontWeight={800} textAlign={"center"}>
                 Photo Was Taken at {elem.date.split(" ")[1]}
               </Typography>
 
-              {/* <Box className="card-content-icons">
-                <EarthPhoto elem={elem} />
-                <Hearts />
-              </Box> */}
+              <EarthPhoto elem={elem} />
             </CardContent>
           </Card>
         </Grid>
