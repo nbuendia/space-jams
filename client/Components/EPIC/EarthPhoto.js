@@ -1,7 +1,7 @@
 import React from "react";
 
 //MUI
-import { Fade, IconButton, Tooltip } from "@mui/material";
+import { IconButton, Tooltip, Zoom } from "@mui/material";
 //MUI ICONS
 import FullscreenIcon from "@mui/icons-material/Fullscreen";
 
@@ -17,7 +17,7 @@ function EarthPhoto(props) {
         rel="noopener noreferrer"
         href={`https://epic.gsfc.nasa.gov/archive/natural/${imgDate}/png/epic_1b_${elem.identifier}.png`}
     >
-        <Tooltip title="Fullsize Image" placement="top" TransitionComponent={Fade}>
+        <Tooltip title="Fullsize Image" placement="top" TransitionComponent={Zoom}>
             <IconButton>
                 <FullscreenIcon />
             </IconButton>

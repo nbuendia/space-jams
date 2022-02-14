@@ -1,7 +1,7 @@
 import React from "react";
 
 //MUI
-import { Box, CardContent, Fade, IconButton, Tooltip, Typography } from "@mui/material";
+import { Box, CardContent, IconButton, Tooltip, Typography, Zoom } from "@mui/material";
 //MUI ICONS
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
@@ -21,7 +21,7 @@ function APODCardContent(props) {
             </Typography>
 
             <Box className="apod-icons">
-                <Tooltip title='Astronomy Picture of The Day' placement="left" TransitionComponent={Fade}>
+                <Tooltip title='Astronomy Picture of The Day' placement="left" TransitionComponent={Zoom}>
                     <a target='_blank' rel="noopener" href="https://apod.nasa.gov/apod/astropix.html">
                         <IconButton>
                             <RocketLaunchIcon style={{color: 'whitesmoke', fontSize: 25}}/>
@@ -29,7 +29,7 @@ function APODCardContent(props) {
                     </a>
                 </Tooltip>
 
-                <Tooltip title='Fullsize Image' placement="right" TransitionComponent={Fade}>
+                <Tooltip title='Fullsize Image' placement="right" TransitionComponent={Zoom}>
                     <a target='_blank' rel='noopener' href={data.url}>
                         <IconButton>
                             <FullscreenIcon style={{color: 'whitesmoke', fontSize: 30}}/>
