@@ -5,13 +5,13 @@ import axios from "axios";
 
 //COMPONENTS
 import APOD from "./APOD";
+import PrevAPOD from "./PrevAPOD";
 
 //MUI
-import { Box, Container, Grid } from "@mui/material";
+import { Box, Container } from "@mui/material";
 
 //DATA
 import key from '../../../secrets.json';
-import PrevAPOD from "./PrevAPOD";
 const apiKey = key["api-key"];
 const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
 
