@@ -39,7 +39,7 @@ function PrevAPOD (props) {
                 </Typography>
             <hr/>
 
-            <Card elevation={0} style={{backgroundColor: 'transparent', marginLeft: '25%', marginRight: '25%'}}>
+            <Card elevation={0} className='prev-apod-card' style={{backgroundColor: 'transparent'}}>
                 <PrevAPODMedia currPhoto={currPhoto} setCurrPhoto={setCurrPhoto} photoUrls={photoUrls} mediaTypes={mediaTypes} />
                 <PrevAPODContent currPhoto={currPhoto} titles={titles} dates={dates} descriptions={descriptions} />
             </Card>
