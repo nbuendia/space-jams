@@ -66,6 +66,11 @@ body {
     margin-left: 30%;
 }
 
+.prev-apod-card {
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
 .earth-card-content {
     display: flex;
     justify-content: space-between;
