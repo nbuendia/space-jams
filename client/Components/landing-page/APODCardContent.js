@@ -10,7 +10,7 @@ function APODCardContent(props) {
     const { data } = props;
 
     let date = data.date.split('-');
-    date = new Date(date[0], date[1], date[2]).toDateString();
+    date = new Date(date[0], date[1] - 1, date[2]).toDateString();
 
     return (
         <CardContent>
