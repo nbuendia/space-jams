@@ -4,7 +4,6 @@ import React from "react";
 import { Box, CardContent, Fade, IconButton, Tooltip, Typography } from "@mui/material";
 //MUI ICONS
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
 
 function APODCardContent(props) {
@@ -16,6 +15,8 @@ function APODCardContent(props) {
     return (
         <CardContent>
             <Typography fontFamily={'Patrick Hand'} fontSize={15} textAlign={'center'} color={'whitesmoke'}>
+                <span style={{fontSize: 20}}>{date}</span>
+                <br/>
                 {data.explanation}
             </Typography>
 
@@ -26,10 +27,6 @@ function APODCardContent(props) {
                             <RocketLaunchIcon style={{color: 'whitesmoke', fontSize: 25}}/>
                         </IconButton>
                     </a>
-                </Tooltip>
-
-                <Tooltip title={date} placement='bottom' TransitionComponent={Fade}>
-                    <CalendarTodayIcon style={{color: 'whitesmoke', fontSize: 25}}/>
                 </Tooltip>
 
                 <Tooltip title='Fullsize Image' placement="right" TransitionComponent={Fade}>
