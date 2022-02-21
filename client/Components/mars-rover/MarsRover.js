@@ -4,9 +4,9 @@ import { ClimbingBoxLoader } from "react-spinners";
 import axios from "axios";
 
 //COMPONENTS
-import Curiosity from "./Curiosity";
-import Opportunity from "./Opportunity";
-import Spirit from "./Spirit";
+import Curiosity from "./curiosity/Curiosity";
+import Opportunity from "./opportunity/Opportunity";
+import Spirit from "./spirit/Spirit";
 
 //MUI
 import { Box, Container, Tab, Tabs, Typography } from "@mui/material";
