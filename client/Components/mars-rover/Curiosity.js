@@ -1,8 +1,10 @@
 import React from "react";
 
+//COMPONENTS
+import CuriosityLatest from "./CuriosityLatest";
+
 //MUI
 import { Box, Paper, Typography } from "@mui/material";
-import CuriosityLatest from "./CuriosityLatest";
 
 function Curiosity(props) {
     const { data, latest } = props;
