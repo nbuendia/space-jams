@@ -1,20 +1,19 @@
 import React from "react";
 
 //COMPONENTS
-import CuriosityMedia from "./CuriosityMedia";
+import CuriosityRadioAndMedia from "./CuriosityRadioAndMedia";
 
 //MUI
-import { Grid, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 
 function CuriosityLatest(props) {
     const { latest } = props;
 
+    //CHANGING DATE TO LOOK FROM YYYY-MM-DD TO ddd MMM DD YYYY
     let date = latest[0].earth_date.split('-');
     date = new Date(date[0], date[1] - 1, date[2]).toDateString();
     const sol = latest[0].sol;
-
-    console.log('TEST', date, sol);
-
+    
     return(
         <>
             <hr/>
@@ -28,9 +27,7 @@ function CuriosityLatest(props) {
                 Sol Day: {sol}
             </Typography>
 
-            <Grid container spacing={1} justifyContent={'center'} style={{overflowY: 'auto'}}>
-                <CuriosityMedia media={latest} />
-            </Grid>
+            <CuriosityRadioAndMedia latest={latest} />
         </>
     )
 
