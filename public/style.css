@@ -77,3 +77,29 @@ body {
     align-items: center;
     background: linear-gradient(0.5turn, black, white, black);
 }
+
+.mars-rover-nav {
+    background-color: #242424;
+    margin-bottom: 25px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.curiosity-info {
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 25px;
+}
+
+.top-button-container {
+    /* display: none; */
+    padding: 50px;
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    right: 0;
+}
+
+.top-button:hover {
+    background-color: #353535 !important;
+}
