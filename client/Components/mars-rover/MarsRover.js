@@ -67,13 +67,13 @@ function MarsRover() {
 
     if (isLoading) return (
         <Box className="loader" >
-            <ClimbingBoxLoader loading={isLoading} color='white'/>
+            <ClimbingBoxLoader loading={isLoading} color='white' size={20}/>
         </Box>
     );
 
     return(
         <Container>
-            <Box style={{backgroundColor: '#242424', marginBottom: '25px'}}>
+            <Box className="mars-rover-nav">
                 <Tabs centered value={value} onChange={handleChange}>
                     <Tab 
                         label={<Typography fontSize={25} color={'whitesmoke'}>Curiosity</Typography>} 
