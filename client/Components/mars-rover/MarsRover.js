@@ -30,14 +30,26 @@ function MarsRover() {
     const [isLoading, setLoading] = useStateIfMounted(true);
     const [value, setValue] = useState('curiosity');
 
+    //CURIOSITY
     const [curiosityData, getCuriosityData] = useState(null);
     const [latestCuriosityData, getLatestCuriosityData] = useState(null);
+    const [curiosityCameras, getCuriosityCameras] = useState(null);
+    const [curiosityEarthDate, getCuriosityEarthDate] = useState(null);
+    const [curiositySol, getCuriositySol] = useState(null);
 
+    //OPPORTUNITY
     const [opportunityData, getOpportunityData] = useState(null);
     const [latestOpportunityData, getLatestOpportunityData] = useState(null);
+    const [opportunityCameras, getOpportunityCameras] = useState(null);
+    const [opportunityEarthDate, getOpportunityEarthDate] = useState(null);
+    const [opportunitySol, getOpportunitySol] = useState(null);
     
+    //SPIRIT
     const [spiritData, getSpiritData] = useState(null);
     const [latestSpiritData, getLatestSpiritData] = useState(null);
+    const [spiritCameras, getSpiritCameras] = useState(null);
+    const [spiritEarthDate, getSpiritEarthDate] = useState(null);
+    const [spiritSol, getSpiritSol] = useState(null);
 
     function handleChange(event, newValue) {
         setValue(newValue);
@@ -45,9 +57,23 @@ function MarsRover() {
 
     useEffect(() => {
         axios.all(manifestUrls.map((url) => axios.get(url))).then((res) => {
+            //CURIOSITY
             getCuriosityData(res[0].data.photo_manifest);
+            getCuriosityCameras(res[0].data.photo_manifest.photos[res[0].data.photo_manifest.photos.length - 1].cameras);
+            getCuriosityEarthDate(res[0].data.photo_manifest.photos[res[0].data.photo_manifest.photos.length - 1].earth_date);
+            getCuriositySol(res[0].data.photo_manifest.photos[res[0].data.photo_manifest.photos.length - 1].sol);
+
+            //OPPORTUNITY
             getOpportunityData(res[1].data.photo_manifest);
+            getOpportunityCameras(res[1].data.photo_manifest.photos[res[1].data.photo_manifest.photos.length - 1].cameras);
+            getOpportunityEarthDate(res[1].data.photo_manifest.photos[res[1].data.photo_manifest.photos.length - 1].earth_date);
+            getOpportunitySol(res[1].data.photo_manifest.photos[res[1].data.photo_manifest.photos.length - 1].sol);
+
+            //SPIRIT
             getSpiritData(res[2].data.photo_manifest);
+            getSpiritCameras(res[2].data.photo_manifest.photos[res[2].data.photo_manifest.photos.length - 1].cameras);
+            getSpiritEarthDate(res[2].data.photo_manifest.photos[res[2].data.photo_manifest.photos.length - 1].earth_date);
+            getSpiritSol(res[2].data.photo_manifest.photos[res[2].data.photo_manifest.photos.length - 1].sol);
 
         }).then(() => {
             axios.all(latestUrls.map((url) => axios.get(url))).then((res) => {
@@ -93,9 +119,9 @@ function MarsRover() {
                 </Tabs>
             </Box>
 
-            {value === 'curiosity' ? <Curiosity data={curiosityData} latest={latestCuriosityData} />
-            : value === 'opportunity' ? <Opportunity data={opportunityData} latest={latestOpportunityData} />
-            : <Spirit data={spiritData} latest={latestSpiritData} />}
+            {value === 'curiosity' ? <Curiosity data={curiosityData} latest={latestCuriosityData} cameras={curiosityCameras} date={curiosityEarthDate} sol={curiositySol} />
+            : value === 'opportunity' ? <Opportunity data={opportunityData} latest={latestOpportunityData} cameras={opportunityCameras} date={opportunityEarthDate} sol={opportunitySol} />
+            : <Spirit data={spiritData} latest={latestSpiritData} cameras={spiritCameras} date={spiritEarthDate} sol={spiritSol} />}
         </Container>
     )
 
