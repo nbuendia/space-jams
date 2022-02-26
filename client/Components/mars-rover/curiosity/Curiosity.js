@@ -15,8 +15,6 @@ function Curiosity(props) {
     launchDate = new Date(launchDate[0], launchDate[1] - 1, launchDate[2]).toDateString();
     landingDate = new Date(landingDate[0], landingDate[1] - 1, landingDate[2]).toDateString();
 
-    console.log('LATEST', latest);
-
     return(
         <>
             <Box className="curiosity-info">
