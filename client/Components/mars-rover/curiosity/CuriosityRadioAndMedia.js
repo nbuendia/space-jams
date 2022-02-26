@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 //COMPONENTS
 import CuriosityMedia from "./CuriosityMedia";
@@ -7,8 +7,12 @@ import CuriosityMedia from "./CuriosityMedia";
 import { FormControl, FormControlLabel, Grid, Radio, RadioGroup, Tooltip, Typography } from "@mui/material";
 
 function CuriosityRadioAndMedia(props) {
-    const { latest } = props;
-    const [value, setValue] = useState(null);
+    const { latest, cameras } = props;
+    const [value, setValue] = useState(cameras[0]);
+
+    function handleChange(event) {
+        setValue(event.target.value);
+    }
 
     //SPLITING BY CAMERA TYPE
     const FHAZ = latest.filter((elem) => elem.camera.name === 'FHAZ');
@@ -19,101 +23,51 @@ function CuriosityRadioAndMedia(props) {
     const MARDI = latest.filter((elem) => elem.camera.name === 'MARDI');
     const NAVCAM = latest.filter((elem) => elem.camera.name === 'NAVCAM');
 
-    //SETS INITIAL VALUE TO RADIO BUTTON
-    useEffect(() => {
-        if (FHAZ.length) setValue('FHAZ');
-        else if (RHAZ.length) setValue('RHAZ');
-        else if (MAST.length) setValue('MAST');
-        else if (CHEMCAM.length) setValue('CHEMCAM');
-        else if (MAHLI.length) setValue('MAHLI');
-        else if (MARDI.length) setValue('MARDI');
-        else if (NAVCAM.length) setValue('NAVCAM');
-    }, []);
+    //TOOLTIP - FULL CAMERA NAMES
+    function fullName(name) {
+        switch (name) {
+            case 'FHAZ':
+                name = 'Front Hazard Avoidance Camera';
+                break;
+            case 'RHAZ':
+                name = 'Rear Hazard Avoidance Camera';
+                break;
+            case 'MAST':
+                name = 'Mast Camera';
+                break;
+            case 'CHEMCAM':
+                name = 'Chemistry and Camera Complex';
+                break;
+            case 'MAHLI':
+                name = 'Mars Hand Lens Imager';
+                break;
+            case 'MARDI':
+                name = 'Mars Descent Imager';
+                break;
+            case 'NAVCAM':
+                name = 'Navigation Camera';
+                break;
+            default:
+                '';
+        }
 
-    function handleChange(event) {
-        setValue(event.target.value);
+        return name;
     }
     
     return(
         <>
             <FormControl fullWidth style={{alignItems: 'center', marginBottom: '25px'}}>
                 <RadioGroup row value={value} onChange={handleChange}>
-                    {FHAZ.length ? 
-                        <Tooltip title={<Typography fontFamily={'Patrick Hand'}>Front Hazard Avoidance Camera</Typography>} placement='bottom'>
-                            <FormControlLabel 
-                                value='FHAZ' 
-                                label={<Typography fontFamily={'Patrick Hand'} color={'whitesmoke'}>FHAZ</Typography>} 
-                                labelPlacement="top" 
-                                control={<Radio style={{color: 'whitesmoke'}} />} 
-                            /> 
-                        </Tooltip>
-                    : ''}
-
-                    {RHAZ.length ? 
-                        <Tooltip title={<Typography fontFamily={'Patrick Hand'}>Rear Hazard Avoidance Camera</Typography>} placement='bottom'>
-                            <FormControlLabel 
-                                value='RHAZ' 
-                                label={<Typography fontFamily={'Patrick Hand'} color={'whitesmoke'}>RHAZ</Typography>} 
-                                labelPlacement="top" 
-                                control={<Radio style={{color: 'whitesmoke'}} />} 
-                            />
-                        </Tooltip> 
-                    : ''}
-
-                    {MAST.length ? 
-                        <Tooltip title={<Typography fontFamily={'Patrick Hand'}>Mast Camera</Typography>} placement='bottom'>
-                            <FormControlLabel 
-                                value='MAST' 
-                                label={<Typography fontFamily={'Patrick Hand'} color={'whitesmoke'}>MAST</Typography>} 
-                                labelPlacement="top" 
-                                control={<Radio style={{color: 'whitesmoke'}} />} 
+                    {cameras.map((camera) => (
+                        <Tooltip key={camera} placement='bottom' title={<Typography fontFamily={'Patrick Hand'}>{fullName(camera)}</Typography>}>
+                            <FormControlLabel
+                                value={camera}
+                                label={<Typography fontFamily={'Patrick Hand'} color={'whitesmoke'}>{camera}</Typography>}
+                                labelPlacement='top'
+                                control={<Radio style={{color: 'whitesmoke'}} />}
                             />
                         </Tooltip>
-                    : ''}
-
-                    {CHEMCAM.length ? 
-                        <Tooltip title={<Typography fontFamily={'Patrick Hand'}>Chemistry and Camera Complex</Typography>} placement='bottom'>
-                            <FormControlLabel 
-                                value='CHEMCAM' 
-                                label={<Typography fontFamily={'Patrick Hand'} color={'whitesmoke'}>CHEMCAM</Typography>} 
-                                labelPlacement="top" 
-                                control={<Radio style={{color: 'whitesmoke'}} />} 
-                            /> 
-                        </Tooltip>
-                    : ''}
-
-                    {MAHLI.length ? 
-                        <Tooltip title={<Typography fontFamily={'Patrick Hand'}>Mars Hand Lens Imager</Typography>} placement='bottom'>
-                            <FormControlLabel 
-                                value='MAHLI' 
-                                label={<Typography fontFamily={'Patrick Hand'} color={'whitesmoke'}>MAHLI</Typography>} 
-                                labelPlacement="top" 
-                                control={<Radio style={{color: 'whitesmoke'}} />} 
-                            /> 
-                        </Tooltip>
-                    : ''}
-
-                    {MARDI.length ? 
-                        <Tooltip title={<Typography fontFamily={'Patrick Hand'}>Mars Descent Imager</Typography>} placement='bottom'>
-                            <FormControlLabel 
-                                value='MARDI' 
-                                label={<Typography fontFamily={'Patrick Hand'} color={'whitesmoke'}>MARDI</Typography>} 
-                                labelPlacement="top" 
-                                control={<Radio style={{color: 'whitesmoke'}} />} 
-                            />
-                        </Tooltip>
-                    : ''}
-
-                    {NAVCAM.length ? 
-                        <Tooltip title={<Typography fontFamily={'Patrick Hand'}>Navigation Camera</Typography>} placement='bottom'>
-                            <FormControlLabel 
-                                value='NAVCAM' 
-                                label={<Typography fontFamily={'Patrick Hand'} color={'whitesmoke'}>NAVCAM</Typography>} 
-                                labelPlacement="top" 
-                                control={<Radio style={{color: 'whitesmoke'}} />} 
-                            /> 
-                        </Tooltip>
-                    : ''}
+                    ))}
                 </RadioGroup>
             </FormControl>
 
