@@ -7,7 +7,7 @@ import CuriosityLatest from "./CuriosityLatest";
 import { Box, Typography } from "@mui/material";
 
 function Curiosity(props) {
-    const { data, latest, cameras, date, sol } = props;
+    const { data, latest, cameras } = props;
 
     //CHANGING DATE TO LOOK FROM YYYY-MM-DD TO ddd MMM DD YYYY
     let launchDate = data.launch_date.split('-');
@@ -19,7 +19,7 @@ function Curiosity(props) {
         <>
             <Box className="curiosity-info">
                 <Typography fontFamily={'Shizuru'} fontSize={25} textAlign={'center'}>
-                    Rover Info 
+                    {data.name} Rover Info 
                 </Typography>
                 <hr/>
 
@@ -30,7 +30,7 @@ function Curiosity(props) {
                 </Typography>
             </Box>
 
-            <CuriosityLatest latest={latest} cameras={cameras} date={date} sol={sol}/>
+            <CuriosityLatest data={data} latest={latest} cameras={cameras} />
         </>
     )
 
