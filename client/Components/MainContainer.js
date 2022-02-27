@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useEffect } from "react";
 
 //MUI
 import { Box, IconButton } from "@mui/material";
@@ -15,23 +15,6 @@ import ISS from "./international-space-station/ISS";
 function MainContainer(props) {
     const { value } = props;
 
-    //FUNCTION THAT USES HOOK TO ADD & REMOVE HIDDEN CLASS TO ARROW CONTAINER
-    const handleNavigation = useCallback((event) => {
-        const window = event.target;
-        const arrow = document.getElementById('arrow');
-
-        if (window.scrollTop === 0) arrow.classList.add('hidden');
-        else if (window.scrollTop > 0) arrow.classList.remove('hidden');
-    });
-
-    //ADDS AND REMOVES SCROLL EVENT LISTENER TO MAIN CONTAINER
-    useEffect(() => {        
-        let elem = document.getElementById('top');
-
-        elem.addEventListener('scroll', handleNavigation);
-        return () => elem.removeEventListener('scroll', handleNavigation);
-    }, [handleNavigation]);
-
     //ADDS BEHAVIOR TO ARROW CLICK TO SCROLL BACK TO TOP SMOOTHLY RATHER THAN JUST SNAPPING BACK
     function handleClick() {
         let elem = document.getElementById('top');
@@ -42,6 +25,23 @@ function MainContainer(props) {
             behavior: 'smooth'
         });
     }
+    
+    //FUNCTION THAT ADDS & REMOVES HIDDEN CLASS TO ARROW CONTAINER
+    function handleClassChange(event) {
+        const window = event.target;
+        const arrow = document.getElementById('arrow');
+
+        if (window.scrollTop === 0) arrow.classList.add('hidden');
+        else if (window.scrollTop > 0) arrow.classList.remove('hidden');
+    };
+
+    //ADDS AND REMOVES SCROLL EVENT LISTENER TO MAIN CONTAINER
+    useEffect(() => {        
+        let elem = document.getElementById('top');
+
+        elem.addEventListener('scroll', handleClassChange);
+        return () => elem.removeEventListener('scroll', handleClassChange);
+    }, [handleClassChange]);
 
     return (
         <Box id='top' className="main-container">
