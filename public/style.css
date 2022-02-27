@@ -26,11 +26,11 @@ body {
     text-align: center;
 }
 
-.nav-bar-container {
+.layout-container {
     display: flex;
 }
 
-.inner-nav-bar {
+.nav-bar-container {
     height: 100vh;
     width: 20vw;
     display: flex;
