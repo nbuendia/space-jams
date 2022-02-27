@@ -4,6 +4,7 @@ import { ClimbingBoxLoader } from "react-spinners";
 import axios from "axios";
 
 //COMPONENTS
+import Perseverance from "./perseverance/Perseverance";
 import Curiosity from "./curiosity/Curiosity";
 import Opportunity from "./opportunity/Opportunity";
 import Spirit from "./spirit/Spirit";
@@ -16,11 +17,13 @@ import key from '../../../secrets.json';
 const apiKey = key["api-key"];
 
 const manifestUrls =[
+    `https://api.nasa.gov/mars-photos/api/v1/manifests/Perseverance/?api_key=${apiKey}`,
     `https://api.nasa.gov/mars-photos/api/v1/manifests/Curiosity/?api_key=${apiKey}`,
     `https://api.nasa.gov/mars-photos/api/v1/manifests/Opportunity/?api_key=${apiKey}`,
     `https://api.nasa.gov/mars-photos/api/v1/manifests/Spirit/?api_key=${apiKey}`
 ];
 const latestUrls =[
+    `https://api.nasa.gov/mars-photos/api/v1/rovers/Perseverance/latest_photos?api_key=${apiKey}`,
     `https://api.nasa.gov/mars-photos/api/v1/rovers/Curiosity/latest_photos?api_key=${apiKey}`,
     `https://api.nasa.gov/mars-photos/api/v1/rovers/Opportunity/latest_photos?api_key=${apiKey}`,
     `https://api.nasa.gov/mars-photos/api/v1/rovers/Spirit/latest_photos?api_key=${apiKey}`
@@ -30,26 +33,25 @@ function MarsRover() {
     const [isLoading, setLoading] = useStateIfMounted(true);
     const [value, setValue] = useState('curiosity');
 
+    //PERSEVERANCE
+    const [perseveranceData, getPerseveranceData] = useState(null);
+    const [latestPerseveranceData, getLatestPerseveranceData] = useState(null);
+    const [perseveranceCameras, getPerseveranceCameras] = useState(null);
+
     //CURIOSITY
     const [curiosityData, getCuriosityData] = useState(null);
     const [latestCuriosityData, getLatestCuriosityData] = useState(null);
     const [curiosityCameras, getCuriosityCameras] = useState(null);
-    const [curiosityEarthDate, getCuriosityEarthDate] = useState(null);
-    const [curiositySol, getCuriositySol] = useState(null);
 
     //OPPORTUNITY
     const [opportunityData, getOpportunityData] = useState(null);
     const [latestOpportunityData, getLatestOpportunityData] = useState(null);
     const [opportunityCameras, getOpportunityCameras] = useState(null);
-    const [opportunityEarthDate, getOpportunityEarthDate] = useState(null);
-    const [opportunitySol, getOpportunitySol] = useState(null);
     
     //SPIRIT
     const [spiritData, getSpiritData] = useState(null);
     const [latestSpiritData, getLatestSpiritData] = useState(null);
     const [spiritCameras, getSpiritCameras] = useState(null);
-    const [spiritEarthDate, getSpiritEarthDate] = useState(null);
-    const [spiritSol, getSpiritSol] = useState(null);
 
     function handleChange(event, newValue) {
         setValue(newValue);
@@ -57,29 +59,28 @@ function MarsRover() {
 
     useEffect(() => {
         axios.all(manifestUrls.map((url) => axios.get(url))).then((res) => {
+            //PERSEVERANCE
+            getPerseveranceData(res[0].data.photo_manifest);
+            getPerseveranceCameras(res[0].data.photo_manifest.photos[res[0].data.photo_manifest.photos.length - 1].cameras);
+
             //CURIOSITY
-            getCuriosityData(res[0].data.photo_manifest);
-            getCuriosityCameras(res[0].data.photo_manifest.photos[res[0].data.photo_manifest.photos.length - 1].cameras);
-            getCuriosityEarthDate(res[0].data.photo_manifest.photos[res[0].data.photo_manifest.photos.length - 1].earth_date);
-            getCuriositySol(res[0].data.photo_manifest.photos[res[0].data.photo_manifest.photos.length - 1].sol);
+            getCuriosityData(res[1].data.photo_manifest);
+            getCuriosityCameras(res[1].data.photo_manifest.photos[res[1].data.photo_manifest.photos.length - 1].cameras);
 
             //OPPORTUNITY
-            getOpportunityData(res[1].data.photo_manifest);
-            getOpportunityCameras(res[1].data.photo_manifest.photos[res[1].data.photo_manifest.photos.length - 1].cameras);
-            getOpportunityEarthDate(res[1].data.photo_manifest.photos[res[1].data.photo_manifest.photos.length - 1].earth_date);
-            getOpportunitySol(res[1].data.photo_manifest.photos[res[1].data.photo_manifest.photos.length - 1].sol);
+            getOpportunityData(res[2].data.photo_manifest);
+            getOpportunityCameras(res[2].data.photo_manifest.photos[res[2].data.photo_manifest.photos.length - 1].cameras);
 
             //SPIRIT
-            getSpiritData(res[2].data.photo_manifest);
-            getSpiritCameras(res[2].data.photo_manifest.photos[res[2].data.photo_manifest.photos.length - 1].cameras);
-            getSpiritEarthDate(res[2].data.photo_manifest.photos[res[2].data.photo_manifest.photos.length - 1].earth_date);
-            getSpiritSol(res[2].data.photo_manifest.photos[res[2].data.photo_manifest.photos.length - 1].sol);
+            getSpiritData(res[3].data.photo_manifest);
+            getSpiritCameras(res[3].data.photo_manifest.photos[res[3].data.photo_manifest.photos.length - 1].cameras);
 
         }).then(() => {
             axios.all(latestUrls.map((url) => axios.get(url))).then((res) => {
-                getLatestCuriosityData(res[0].data.latest_photos);
-                getLatestOpportunityData(res[1].data.latest_photos);
-                getLatestSpiritData(res[2].data.latest_photos);
+                getLatestPerseveranceData(res[0].data.latest_photos);
+                getLatestCuriosityData(res[1].data.latest_photos);
+                getLatestOpportunityData(res[2].data.latest_photos);
+                getLatestSpiritData(res[3].data.latest_photos);
                                 
                 setTimeout(() => {
                     setLoading(false);
@@ -102,6 +103,11 @@ function MarsRover() {
             <Box className="mars-rover-nav">
                 <Tabs centered value={value} onChange={handleChange}>
                     <Tab 
+                        label={<Typography fontSize={25} color={'whitesmoke'}>Perseverance</Typography>} 
+                        value='perseverance' 
+                        className='tab' 
+                    />
+                    <Tab 
                         label={<Typography fontSize={25} color={'whitesmoke'}>Curiosity</Typography>} 
                         value='curiosity' 
                         className='tab' 
@@ -119,9 +125,10 @@ function MarsRover() {
                 </Tabs>
             </Box>
 
-            {value === 'curiosity' ? <Curiosity data={curiosityData} latest={latestCuriosityData} cameras={curiosityCameras} date={curiosityEarthDate} sol={curiositySol} />
-            : value === 'opportunity' ? <Opportunity data={opportunityData} latest={latestOpportunityData} cameras={opportunityCameras} date={opportunityEarthDate} sol={opportunitySol} />
-            : <Spirit data={spiritData} latest={latestSpiritData} cameras={spiritCameras} date={spiritEarthDate} sol={spiritSol} />}
+            {value === 'perseverance' ? <Perseverance data={perseveranceData} latest={latestPerseveranceData} cameras={perseveranceCameras} />
+            : value === 'curiosity' ? <Curiosity data={curiosityData} latest={latestCuriosityData} cameras={curiosityCameras} />
+            : value === 'opportunity' ? <Opportunity data={opportunityData} latest={latestOpportunityData} cameras={opportunityCameras} />
+            : <Spirit data={spiritData} latest={latestSpiritData} cameras={spiritCameras} />}
         </Container>
     )
 
