@@ -17,7 +17,7 @@ function MainContainer(props) {
 
     //FUNCTION THAT USES HOOK TO ADD & REMOVE HIDDEN CLASS TO ARROW CONTAINER
     const handleNavigation = useCallback((event) => {
-        const window = event.currentTarget;
+        const window = event.target;
         const arrow = document.getElementById('arrow');
 
         if (window.scrollTop === 0) arrow.classList.add('hidden');
