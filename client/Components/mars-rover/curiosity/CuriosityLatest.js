@@ -7,11 +7,11 @@ import CuriosityRadioAndMedia from "./CuriosityRadioAndMedia";
 import { Box, Typography } from "@mui/material";
 
 function CuriosityLatest(props) {
-    const { latest, cameras, date, sol } = props;
+    const { data, latest, cameras } = props;
 
     //CHANGING DATE TO LOOK FROM YYYY-MM-DD TO ddd MMM DD YYYY
-    let formattedDate = date.split('-');
-    formattedDate = new Date(formattedDate[0], formattedDate[1] - 1, formattedDate[2]).toDateString();
+    let date =  data.max_date.split('-');
+    date = new Date(date[0], date[1] - 1, date[2]).toDateString();
     
     return(
         <>
@@ -23,8 +23,8 @@ function CuriosityLatest(props) {
 
             <Box className="curiosity-info">
                 <Typography fontFamily={'Patrick Hand'} fontSize={20} textAlign={"center"} color={'whitesmoke'} margin={'15px'} border={'1px solid #0366fc'}>
-                    Taken on: {formattedDate} <br/>
-                    Sol Day: {sol}
+                    Taken on: {date} <br/>
+                    Sol Day: {data.max_sol}
                 </Typography>
             </Box>
 
