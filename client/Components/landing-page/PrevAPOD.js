@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 
-//MUI
-import { Card, Typography } from "@mui/material";
-
 //COMPONENTS
 import PrevAPODMedia from "./PrevAPODMedia";
 import PrevAPODContent from "./PrevAPODContent";
 
+//MUI
+import { Card, Typography } from "@mui/material";
 
 function PrevAPOD (props) {
     const { data } = props;
