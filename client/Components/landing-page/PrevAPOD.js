@@ -3,7 +3,7 @@ import React, { useState } from "react";
 //MUI
 import { Card, Typography } from "@mui/material";
 
-//MUI ICONS
+//COMPONENTS
 import PrevAPODMedia from "./PrevAPODMedia";
 import PrevAPODContent from "./PrevAPODContent";
 
