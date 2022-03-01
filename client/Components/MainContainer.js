@@ -52,7 +52,7 @@ function MainContainer(props) {
             : <Roadster />}
 
             <Box id='arrow' className="top-button-container hidden">
-                <IconButton className="top-button" onClick={handleClick}>
+                <IconButton className="button" onClick={handleClick}>
                     <KeyboardDoubleArrowUpIcon style={{color: 'whitesmoke', fontSize: '45'}}/>
                 </IconButton>
             </Box>
