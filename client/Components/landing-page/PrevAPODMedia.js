@@ -22,7 +22,7 @@ function PrevAPODMedia (props) {
 
     function handleNextPhoto() {
         if (currPhoto === lastPhotoIdx) setCurrPhoto(0);
-        else setCurrPhoto(currPhoto + 1)
+        else setCurrPhoto(currPhoto + 1);
     }
 
     return (
@@ -31,7 +31,7 @@ function PrevAPODMedia (props) {
                 <ArrowBackIosNewIcon style={{color: 'whitesmoke'}} />
             </IconButton>
             
-            <CardMedia 
+            <CardMedia
                 component={currMediaType === 'image' ? 'img' : 'iframe'}
                 image={currentPhoto}
                 alt='Astronomy Photo of The Day'
