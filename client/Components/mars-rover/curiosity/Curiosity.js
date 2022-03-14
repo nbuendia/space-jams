@@ -2,6 +2,7 @@ import React from "react";
 
 //COMPONENTS
 import CuriosityLatest from "./CuriosityLatest";
+import CuriosityByDate from "./CuriosityByDate";
 
 //MUI
 import { Box, Typography } from "@mui/material";
@@ -21,9 +22,12 @@ function Curiosity(props) {
                 <Typography fontFamily={'Shizuru'} fontSize={25} textAlign={'center'}>
                     {data.name} Rover Info 
                 </Typography>
-                <hr/>
+            </Box>
 
-                <Typography fontFamily={'Patrick Hand'} textAlign={'center'} color={'white'} border={'1px solid #0366fc'}>
+            <hr style={{marginLeft: '25%', marginRight: '25%'}}/>
+
+            <Box className="curiosity-info" marginBottom={'25px'}>
+                <Typography fontFamily={'Patrick Hand'} textAlign={'center'} color={'white'} margin={'15px'} border={'1px solid #0366fc'} padding={'15px'}>
                     Status: {data.status[0].toUpperCase() + data.status.slice(1)} <br/>
                     Launch Date: {launchDate} <br/>
                     Landing Date: {landingDate}
@@ -31,9 +35,9 @@ function Curiosity(props) {
             </Box>
 
             <CuriosityLatest data={data} latest={latest} cameras={cameras} />
+            <CuriosityByDate />
         </>
     )
-
 }
 
 export default Curiosity;
