@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 //MUI
-import { CardContent, IconButton, Typography } from "@mui/material";
+import { Box, CardContent, IconButton, Typography } from "@mui/material";
 
 //MUI ICONS
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -29,16 +29,12 @@ function PrevAPODContent (props) {
                 {currDate}
             </Typography>
             <hr/>
-            
+
             {showDescription ? 
                 <>
                     <IconButton onClick={handleDescription} style={{width: '100%'}}>
                         <KeyboardArrowUpIcon style={{color: 'whitesmoke'}} />
                     </IconButton>
-                    
-                    <Typography fontFamily={'Patrick Hand'} fontSize={15} textAlign={'center'} color={'whitesmoke'}>
-                        {currDescription}
-                    </Typography>
                 </> 
             :
                 <>
@@ -47,6 +43,13 @@ function PrevAPODContent (props) {
                     </IconButton>
                 </>
             }
+
+            <Box className="transition" style={{height: showDescription ? '10vh' : 0}}>
+                <Typography fontFamily={'Patrick Hand'} fontSize={15} textAlign={'center'} color={'whitesmoke'}>
+                    {currDescription}
+                </Typography>
+            </Box>
+            
         </CardContent>
     )
 }
