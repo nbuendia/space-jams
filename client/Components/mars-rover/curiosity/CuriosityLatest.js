@@ -38,7 +38,7 @@ function CuriosityLatest(props) {
             </Typography>
             <hr/>
             
-            <Box id='top2' className="transition" style={{height: showContent ? '40vh' : 0}}>
+            <Box className="transition" style={{height: showContent ? '40vh' : 0}}>
                 <Box className="curiosity-info">
                     <Typography fontFamily={'Patrick Hand'} fontSize={20} textAlign={"center"} color={'whitesmoke'} margin={'15px'} border={'1px solid #0366fc'} padding={'15px'}>
                         Taken on: {date} <br/>
