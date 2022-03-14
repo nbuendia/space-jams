@@ -7,6 +7,7 @@ import { createTheme, ThemeProvider } from "@mui/material";
 
 //TO IMPORT STYLES ON DEPLOYED BUILD
 import '../public/style.css';
+import 'react-calendar/dist/Calendar.css';
 
 //COMPONENTS
 import App from './App'
