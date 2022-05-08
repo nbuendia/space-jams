@@ -8,7 +8,7 @@
 
 ## Introduction
 
-Why Space? Ive always been intrigued with space, the planets, their moons and the possibility of life other than us humans. So much so, I named my Dog Astro _(after astrology, although he does resemble Astro from The Jetsons)_. I recently had the most motivating application project for an internship that I hope to land and this will stem from that project. I never had the opprotunity to work with APIs and this one project helped me learn how to receive and display information gathered from different APIs. _More information on the APIs used below._
+Why Space? Ive always been intrigued with space, the planets, their moons and the possibility of life other than us humans. So much so, I named my Dog Astro _(after astronomy, although he does resemble Astro from The Jetsons)_. I recently had the most motivating application project for an internship that I hope to land and this will stem from that project. I never had the opprotunity to work with APIs and this one project helped me learn how to receive and display information gathered from different APIs. _More information on the APIs used below._
 
 <p align='center'>
     <a target="_blank" rel="noopener" href="https://api.nasa.gov/">
