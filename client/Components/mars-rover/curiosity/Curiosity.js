@@ -1,8 +1,8 @@
 import React from "react";
 
 //COMPONENTS
-import CuriosityLatest from "./CuriosityLatest";
-import CuriosityByDate from "./CuriosityByDate";
+import CuriosityLatest from "./latest/CuriosityLatest";
+import CuriosityByDate from "./byDate/CuriosityByDate";
 
 //MUI
 import { Box, Typography } from "@mui/material";
