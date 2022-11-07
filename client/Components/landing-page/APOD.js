@@ -19,9 +19,11 @@ function APOD(props) {
 
             <Card style={{backgroundColor: 'transparent'}} elevation={0}>
                 <CardMedia 
-                    component='img'
+                    component={data.media_type === 'image' ? 'img' : 'iframe'}
                     image={data.url}
                     alt='Astronomy Picture of The Day'
+                    allowFullScreen
+                    frameBorder={0}
                 />
 
                 <APODCardContent data={data} />
