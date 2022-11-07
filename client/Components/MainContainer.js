@@ -15,6 +15,8 @@ function MainContainer(props) {
     const { value } = props;
     const [elem, getElem] = useState(null);
 
+    const scrollIcon = value === 'home' || value === 'epic';
+
     useEffect(() => {        
         let elem = document.getElementById('top');
         getElem(elem);
@@ -28,7 +30,7 @@ function MainContainer(props) {
             : value === 'international space station' ? <ISS />
             : <Roadster />}
 
-            <ScrollButton elem={elem}/>
+             {scrollIcon && <ScrollButton elem={elem}/>}
         </Box>
     );
 }
