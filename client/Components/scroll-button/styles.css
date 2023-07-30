@@ -1,0 +1,19 @@
+.Hidden {
+    display: none;
+}
+
+.TopButtonContainer {
+    padding: 50px;
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    right: 0;
+}
+
+.Button {
+    backdrop-filter: blur(10px);
+}
+
+.Button:hover {
+    background-color: #353535 !important;
+}

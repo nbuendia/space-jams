@@ -1,0 +1,12 @@
+.ApodIcons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-right: 30%;
+    margin-left: 30%;
+}
+
+.PreviousApodCard {
+    margin-left: 25%;
+    margin-right: 25%;
+}

@@ -2,13 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Shizuru&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Shizuru&display=swap');
 
+@import url('../client/app/sections/apod/styles.css');
+@import url('../client/app/sections/epic/styles.css');
+@import url('../client//app//sections/mars-rover/styles.css');
+@import url('../client/components/scroll-button/styles.css');
+
 body {
     margin: 0;
     background-color: rgb(15, 15, 15);
     color: whitesmoke;
 }
 
-.loading-container {
+.LoadingContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,7 +23,7 @@ body {
     background-color: black;
 }
 
-.loader {
+.Loader {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -26,11 +31,11 @@ body {
     text-align: center;
 }
 
-.layout-container {
+.LayoutContainer {
     display: flex;
 }
 
-.nav-bar-container {
+.NavBarContainer {
     height: 100vh;
     width: 20vw;
     display: flex;
@@ -38,84 +43,17 @@ body {
     background-color: #242424;
 }
 
-.tab-container {
+.TabContainer {
     width: 20vw;
 }
 
-.tab:hover {
+.Tab:hover {
     background-color: #333333;
 }
 
-/* DOESNT FULLY WORK - WILL FIX LATER - */
-/* button:focus {
-    border: 1px solid whitesmoke;
-} */
-
-.main-container {
+.MainContainer {
     height: 100vh;
     width: 100%;
     overflow-y: auto;
     display: flex;
-}
-
-.apod-icons {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-right: 30%;
-    margin-left: 30%;
-}
-
-.prev-apod-card {
-    margin-left: 25%;
-    margin-right: 25%;
-}
-
-.earth-card-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: linear-gradient(0.5turn, black, white, black);
-}
-
-.mars-rover-nav {
-    background-color: #242424;
-    margin-bottom: 25px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-.curiosity-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    /* margin-left: 25%;
-    margin-right: 25%; */
-}
-
-.hidden {
-    display: none;
-}
-
-.top-button-container {
-    padding: 50px;
-    position: fixed;
-    top: auto;
-    bottom: 0;
-    right: 0;
-}
-
-.button {
-    backdrop-filter: blur(10px);
-}
-
-.button:hover {
-    background-color: #353535 !important;
-}
-
-.transition {
-    transition: .5s ease-in-out;
-    /* transform-origin: left top; */
-    overflow: auto;
 }
